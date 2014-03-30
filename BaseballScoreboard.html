@@ -1,0 +1,331 @@
+<html>
+<head>
+<title>BaseballScoreboard</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="assets/jquery-1.10.2.min.js"></script>
+<style type="text/css">
+	body {
+		font-family: helvetica neue;
+		
+	}
+	td {
+	font-weight: bold;
+		font-size: 36pt; 
+		line-height:0;
+		
+	}
+</style>
+<script>
+	$(document).ready(function(){
+
+		$("#update_away_name").click(function() {
+   		$("#away_name_field").text($("#away_name").val().toUpperCase());
+    });
+    
+    $("#wa_score_plus1").click(function() {
+   		var oldscore = parseInt($("#wa_score_field").text(), 10);
+   		var newscore = oldscore+1;
+   		$("#wa_score_field").text(newscore);
+    });
+    
+    $("#away_score_plus1").click(function() {
+   		var oldscore = parseInt($("#away_score_field").text(), 10);
+   		var newscore = oldscore+1;
+   		$("#away_score_field").text(newscore);
+    });
+    
+    $("#wa_score_minus1").click(function() {
+   		var oldscore = parseInt($("#wa_score_field").text(), 10);
+   		var newscore = oldscore-1;
+   		if( newscore < 0) { newscore = 0; }
+   		$("#wa_score_field").text(newscore);
+    });
+    
+    $("#away_score_minus1").click(function() {
+   		var oldscore = parseInt($("#away_score_field").text(), 10);
+   		var newscore = oldscore-1;
+   		if( newscore < 0) { newscore = 0; }
+   		$("#away_score_field").text(newscore);
+    });
+    
+    $("#inning_plus").click(function() {
+   		var oldinning = parseInt($("#inning_field").text(), 10);
+   		var oldtopbot = $("#topbot_inning_field").text();
+   		if(oldtopbot.localeCompare("p") == 0) {
+   			$("#topbot_inning_field").text("q");
+   		} else {
+   			$("#inning_field").text(oldinning+1);
+   			$("#topbot_inning_field").text("p");
+   		}   		
+    });
+    
+    $("#inning_minus").click(function() {
+   		var oldinning = parseInt($("#inning_field").text(), 10);
+   		var oldtopbot = $("#topbot_inning_field").text();
+   		if(oldtopbot.localeCompare("p") == 0) {
+   			$("#inning_field").text(oldinning-1);
+   			$("#topbot_inning_field").text("q");
+   		} else {
+   			$("#topbot_inning_field").text("p");
+   		}   		
+    });
+    
+    $("#inning_final").click(function() {
+   		$("#inning_field_div").text("F");
+    	$("#inning_field_div").css({"margin-top":"0"});
+    });
+    
+    $("#balls_0").click(function() {
+   		$("#balls_field").text("0");
+    });
+		$("#balls_1").click(function() {
+   		$("#balls_field").text("1");
+    });
+    $("#balls_2").click(function() {
+   		$("#balls_field").text("2");
+    });
+    $("#balls_3").click(function() {
+   		$("#balls_field").text("3");
+    });
+		$("#balls_4").click(function() {
+   		$("#balls_field").text("4");
+    });
+    
+    $("#strikes_0").click(function() {
+   		$("#strikes_field").text("0");
+    });
+		$("#strikes_1").click(function() {
+   		$("#strikes_field").text("1");
+    });
+    $("#strikes_2").click(function() {
+   		$("#strikes_field").text("2");
+    });
+    $("#strikes_3").click(function() {
+   		$("#strikes_field").text("3");
+    });
+		$("#strikes_4").click(function() {
+   		$("#strikes_field").text("4");
+    });
+    
+    $("#outs_0").click(function() {
+    	$("#oneout_field").attr('src','assets/OneOut_Off.jpg');
+    	$("#twoouts_field").attr('src','assets/TwoOuts_Off.jpg');
+    });
+    
+    $("#outs_1").click(function() {
+    	$("#oneout_field").attr('src','assets/OneOut_On.jpg');
+    	$("#twoouts_field").attr('src','assets/TwoOuts_Off.jpg');
+    });
+    
+    $("#outs_2").click(function() {
+    	$("#oneout_field").attr('src','assets/OneOut_On.jpg');
+    	$("#twoouts_field").attr('src','assets/TwoOuts_On.jpg');
+    });
+    
+    $("#firstbase_on").click(function() {
+    	$("#firstbase_field").attr('src','assets/FirstBase_On.jpg');
+    });
+    $("#firstbase_off").click(function() {
+    	$("#firstbase_field").attr('src','assets/FirstBase_Off.jpg');
+    });
+    
+    $("#secondbase_on").click(function() {
+    	$("#secondbase_field").attr('src','assets/SecondBase_On.jpg');
+    });
+    $("#secondbase_off").click(function() {
+    	$("#secondbase_field").attr('src','assets/SecondBase_Off.jpg');
+    });
+    
+    $("#thirdbase_on").click(function() {
+    	$("#thirdbase_field").attr('src','assets/ThirdBase_On.jpg');
+    });
+    $("#thirdbase_off").click(function() {
+    	$("#thirdbase_field").attr('src','assets/ThirdBase_Off.jpg');
+    });
+    
+    
+	});
+</script>
+</head>
+<body bgcolor="#00ff06" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Save for Web Slices (BaseballScoreboard.psd) -->
+<!-- style="background:url('');width:px;height:px;" -->
+<table id="Table_01" width="1001" height="257" border="0" cellpadding="0" cellspacing="0" style="margin:auto;margin-top:30px;margin-bottom:30px;">
+	<tr>
+		<td rowspan="13">
+			<img src="assets/BaseballScoreboard_01.jpg" width="270" height="256" alt=""></td>
+		<td colspan="14">
+			<img src="assets/BaseballScoreboard_02.jpg" width="730" height="48" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="48" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="5" style="background:url('assets/Team1_Name.jpg');width:288px;height:77px;text-align:right;padding-right: 20px;">
+		WEST A
+			</td>
+		<td rowspan="12">
+			<img src="assets/BaseballScoreboard_04.jpg" width="3" height="208" alt=""></td>
+		<td rowspan="5" style="background:url('assets/Team1_Score.jpg');width:77px;height:77px;text-align:center;">
+		<span id="wa_score_field">0</span>
+			</td>
+		<td rowspan="12">
+			<img src="assets/BaseballScoreboard_06.jpg" width="3" height="208" alt=""></td>
+		<td rowspan="5" style="background:url('assets/BallsStrikes.jpg');width:131px;height:77px;text-align:center;">
+		<span id="balls_field">0</span>-<span id="strikes_field">0</span>
+			</td>
+		<td colspan="9">
+			<img src="assets/BaseballScoreboard_08.jpg" width="228" height="12" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="12" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="3">
+			<img src="assets/BaseballScoreboard_09.jpg" width="73" height="46" alt=""></td>
+		<td colspan="3">
+			<img src="assets/SecondBase_Off.jpg" width="40" height="42" alt="" id="secondbase_field"></td>
+		<td colspan="3" rowspan="2">
+			<img src="assets/BaseballScoreboard_11.jpg" width="115" height="45" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="42" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" rowspan="6">
+			<img src="assets/BaseballScoreboard_12.jpg" width="40" height="63" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="5">
+			<img src="assets/BaseballScoreboard_13.jpg" width="6" height="60" alt=""></td>
+		<td rowspan="4">
+			<img src="assets/FirstBase_Off.jpg" width="41" height="41" alt="" id="firstbase_field"></td>
+		<td rowspan="9">
+			<img src="assets/BaseballScoreboard_15.jpg" width="68" height="151" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="8">
+			<img src="assets/BaseballScoreboard_16.jpg" width="22" height="150" alt=""></td>
+		<td rowspan="3">
+			<img src="assets/ThirdBase_Off.jpg" width="40" height="40" alt="" id="thirdbase_field"></td>
+		<td rowspan="4">
+			<img src="assets/BaseballScoreboard_18.jpg" width="11" height="59" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="19" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="assets/BaseballScoreboard_19.jpg" width="288" height="3" alt=""></td>
+		<td>
+			<img src="assets/BaseballScoreboard_20.jpg" width="77" height="3" alt=""></td>
+		<td>
+			<img src="assets/BaseballScoreboard_21.jpg" width="131" height="3" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="3" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="5" style="background:url('assets/Team2_Name.jpg');width:288px;height:76px;text-align:right;padding-right: 20px;">
+		<span id="away_name_field">AWAY</span>
+			</td>
+		<td rowspan="5" style="background:url('assets/Team2_Score.jpg');width:77px;height:76px;text-align:center;">
+		<span id="away_score_field">0</span>
+			</td>
+		<td rowspan="5" style="background:url('assets/Inning.jpg');width:131px;height:76px;text-align:center;">
+		<!-- BOTTOM - q -->
+		<!-- TOP - p -->
+		<div style="margin-top:15px" id="inning_field_div"><span	style="font-family:'Wingdings 3';font-size:18.25pt;" id="topbot_inning_field">p</span><span id="inning_field">1</span></div>
+			</td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="18" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="5">
+			<img src="assets/BaseballScoreboard_25.jpg" width="40" height="110" alt=""></td>
+		<td rowspan="5">
+			<img src="assets/BaseballScoreboard_26.jpg" width="41" height="110" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="19" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2">
+			<img src="assets/OneOut_Off.jpg" width="25" height="24" alt="" id="oneout_field"></td>
+		<td rowspan="4">
+			<img src="assets/BaseballScoreboard_28.jpg" width="11" height="91" alt=""></td>
+		<td colspan="2">
+			<img src="assets/TwoOuts_Off.jpg" width="21" height="23" alt="" id="twoouts_field"></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="23" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="3">
+			<img src="assets/BaseballScoreboard_30.jpg" width="21" height="68" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2">
+			<img src="assets/BaseballScoreboard_31.jpg" width="25" height="67" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="15" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="assets/BaseballScoreboard_32.jpg" width="288" height="52" alt=""></td>
+		<td>
+			<img src="assets/BaseballScoreboard_33.jpg" width="77" height="52" alt=""></td>
+		<td>
+			<img src="assets/BaseballScoreboard_34.jpg" width="131" height="52" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="1" height="52" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="assets/spacer.gif" width="270" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="288" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="3" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="77" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="3" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="131" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="22" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="40" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="11" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="14" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="11" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="15" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="6" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="41" height="1" alt=""></td>
+		<td>
+			<img src="assets/spacer.gif" width="68" height="1" alt=""></td>
+		<td></td>
+	</tr>
+</table>
+<!-- End Save for Web Slices -->
+
+<div style="background:white;margin:auto;width:900px;min-height:300px;padding:10px;">
+AWAY Team Name: <input type="text" name="away_name" value="AWAY" id="away_name" /><button id="update_away_name">UPDATE</button><br /><br />
+WA Score: <button id="wa_score_plus1">+1</button><button id="wa_score_minus1">-1</button><br />
+AWAY Score: <button id="away_score_plus1">+1</button><button id="away_score_minus1">-1</button><br /><br />
+Inning: <button id="inning_plus">+ Half Inning</button><button id="inning_minus">- Half Inning</button><button id="inning_final">FINAL</button><br /><br />
+Balls: <button id="balls_0">0</button><button id="balls_1">1</button><button id="balls_2">2</button><button id="balls_3">3</button><button id="balls_4">4</button><br />
+Strikes: <button id="strikes_0">0</button><button id="strikes_1">1</button><button id="strikes_2">2</button><button id="strikes_3">3</button><br />
+Outs: <button id="outs_0">0</button><button id="outs_1">1</button><button id="outs_2">2</button><br /><br />
+First Base: <button id="firstbase_on">On</button><button id="firstbase_off">Off</button><br />
+Second Base: <button id="secondbase_on">On</button><button id="secondbase_off">Off</button><br />
+Third Base: <button id="thirdbase_on">On</button><button id="thirdbase_off">Off</button>
+</div>
+</body>
+</html>
